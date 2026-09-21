@@ -26,4 +26,4 @@ The Vercel project is linked as `dewa-united-digital-concept`. Run `npx vercel@l
 
 Potential next phases include a news and media CMS, fixtures and standings, ticketing, ecommerce, membership, administration, analytics, and SEO.
 
-This repository is an independent working concept and does not represent an official Dewa United website.
+This repository is an independent working concept and does not represent an official Dewa United website
