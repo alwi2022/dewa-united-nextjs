@@ -1,0 +1,12 @@
+.next
+node_modules
+.env*
+.DS_Store
+
+.vercel
+
+# profil Chrome sementara (berisi cookies/history) & screenshot verifikasi
+.tmp-chrome
+.tmp-*-chrome
+artifacts
+*.tsbuildinfo
