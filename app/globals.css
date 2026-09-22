@@ -20,6 +20,10 @@
   --gap:12px;        /* every card grid and rail */
   --hero-col:640px;  /* lebar kolom teks hero -- jaga subjek foto tetap terlihat */
   --section-y:72px;  /* section vertical padding */
+  --rail-card:76vw;  /* lebar kartu rail di ponsel (ManUtd: 296px = 76%) */
+  --gutter:36px;     /* jarak tepi halaman -- satu sumber untuk .wrap & bleed rail */
+  --card-media:340px;/* tinggi kartu media di ponsel (news/videos/teams) */
+  --card-copy:18px;  /* inset teks di dalam kartu media */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -33,7 +37,7 @@ button{font:inherit}
 a:focus-visible,button:focus-visible{
   outline:2px solid var(--gold-soft);outline-offset:4px
 }
-.wrap{width:min(var(--max),calc(100% - 72px));margin:auto}
+.wrap{width:min(var(--max),calc(100% - var(--gutter) * 2));margin:auto}
 .eyebrow{
   font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;
   color:var(--gold-soft);font-weight:800
@@ -290,7 +294,7 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
 
 /* RESPONSIVE */
 @media(max-width:980px){
-  .wrap{width:min(100% - 34px,var(--max))}
+  :root{--gutter:17px}
   .nav{grid-template-columns:1fr auto}.navlinks{display:none}
   .hero{min-height:86vh}.hero h1{font-size:52px}
   .hero-bottom{flex-direction:column;align-items:flex-start}
@@ -484,10 +488,10 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
   .product-media{height:320px!important}
 }
 
-@media(max-width:1180px){.wrap{width:min(var(--max),calc(100% - 44px))}.nav{grid-template-columns:auto 1fr auto;gap:24px}.navlinks{justify-content:center;gap:20px}.hero h1{font-size:clamp(40px,4.6vw,58px)}.news-grid{grid-template-columns:1.2fr .8fr}.news-grid .media-card:first-child{grid-row:span 2}.news-grid .media-card.small{min-height:252px}.worlds{grid-template-columns:repeat(3,minmax(0,1fr))}.world h3{font-size:clamp(36px,4vw,50px)}.trophy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:900px){.wrap{width:min(var(--max),calc(100% - 32px))}header{background:rgba(7,7,7,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:72px;grid-template-columns:1fr auto}.navlinks{display:none}.brand{font-size:19px}.section{padding:60px 0}.section-head{align-items:flex-start;gap:22px}.section-head h2{font-size:clamp(30px,4.6vw,42px)}.hero{min-height:86svh}.hero-content{padding:120px 0 48px}.hero h1{font-size:clamp(38px,5.4vw,50px)}.hero-bottom{max-width:760px}.fixture-rail{grid-auto-columns:minmax(310px,78vw);padding-right:16px}.news-grid{grid-template-columns:1fr 1fr}.news-grid .media-card:first-child{grid-column:1/-1;grid-row:auto;min-height:480px}.news-grid .media-card.small{min-height:360px}.video-rail{grid-auto-columns:minmax(300px,72vw);padding-right:16px}.worlds{grid-template-columns:1fr}.world{min-height:500px}.honours-top{grid-template-columns:1fr;gap:18px;align-items:start}.trophy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trophy-media{height:260px}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-top{flex-direction:column}.footer-cols{width:100%;justify-content:space-between;gap:24px}}
-@media(max-width:640px){.wrap{width:calc(100% - 28px)}.nav{height:66px}.brand{font-size:17px}.navright .link{font-size:10px}.section{padding:52px 0}.section-head{flex-direction:column;align-items:flex-start;margin-bottom:28px}.section-head h2{font-size:clamp(28px,8vw,36px);line-height:.95}.section-head p{font-size:13px;max-width:100%}.hero{min-height:82svh}.hero-media img{object-position:center}.hero-content{padding:110px 0 40px}.hero h1{font-size:clamp(34px,9.5vw,44px);line-height:.92}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;margin-top:24px}.hero-bottom p{font-size:13px;max-width:100%}.hero-actions{width:100%}.hero-actions .btn{flex:1;min-width:0}.sport-tab-inner{min-height:60px;gap:22px;overflow-x:auto;padding-right:14px;scrollbar-width:none}.sport-tab-inner::-webkit-scrollbar{display:none}.sport-tab{padding:22px 0;font-size:11px}.fixture-rail{grid-auto-columns:88vw;gap:12px;margin-right:-14px}.fixture-card{min-height:250px;padding:18px}.fixture-match{grid-template-columns:1fr 62px 1fr}.club-logo{width:56px;height:56px}.club-name{font-size:13px}.match-time strong{font-size:24px}.news-grid{grid-template-columns:1fr;gap:12px}.news-grid .media-card:first-child,.news-grid .media-card.small{grid-column:auto;min-height:360px}.media-copy{left:18px;right:18px;bottom:18px}.media-title{font-size:24px}.media-card.small .media-title{font-size:20px}.video-rail{grid-auto-columns:86vw;gap:12px;margin-right:-14px}.video-card{min-height:390px}.video-copy{left:18px;right:18px;bottom:18px}.video-title{font-size:20px}.world{min-height:430px}.world-copy{left:20px;right:20px;bottom:20px}.world h3{font-size:34px}.honours-top h3{font-size:clamp(28px,8vw,36px)}.honours-top p{font-size:13px}.trophy-grid{grid-template-columns:1fr}.trophy-media{height:280px}.trophy-title{font-size:20px}.shop-grid{grid-template-columns:1fr}.product-media{height:320px!important}.logo-wall{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-cell{min-height:96px;padding:18px}.footer-logo{font-size:42px}.footer-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 20px}.btn{min-height:46px;padding:0 14px}}
-@media(max-width:390px){.wrap{width:calc(100% - 22px)}.navright{display:none}.hero h1{font-size:34px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.fixture-rail,.video-rail{grid-auto-columns:91vw}.fixture-match{grid-template-columns:1fr 54px 1fr}.club-logo{width:50px;height:50px}.footer-cols{grid-template-columns:1fr}}
+@media(max-width:1180px){:root{--gutter:22px}.nav{grid-template-columns:auto 1fr auto;gap:24px}.navlinks{justify-content:center;gap:20px}.hero h1{font-size:clamp(40px,4.6vw,58px)}.news-grid{grid-template-columns:1.2fr .8fr}.news-grid .media-card:first-child{grid-row:span 2}.news-grid .media-card.small{min-height:252px}.worlds{grid-template-columns:repeat(3,minmax(0,1fr))}.world h3{font-size:clamp(36px,4vw,50px)}.trophy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){:root{--gutter:16px}header{background:rgba(7,7,7,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:72px;grid-template-columns:1fr auto}.navlinks{display:none}.brand{font-size:19px}.section{padding:60px 0}.section-head{align-items:flex-start;gap:22px}.section-head h2{font-size:clamp(30px,4.6vw,42px)}.hero{min-height:86svh}.hero-content{padding:120px 0 48px}.hero h1{font-size:clamp(38px,5.4vw,50px)}.hero-bottom{max-width:760px}.fixture-rail{grid-auto-columns:minmax(310px,78vw);padding-right:16px}.news-grid{grid-template-columns:1fr 1fr}.news-grid .media-card:first-child{grid-column:1/-1;grid-row:auto;min-height:480px}.news-grid .media-card.small{min-height:360px}.video-rail{grid-auto-columns:minmax(300px,72vw);padding-right:16px}.worlds{grid-template-columns:1fr}.world{min-height:500px}.honours-top{grid-template-columns:1fr;gap:18px;align-items:start}.trophy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trophy-media{height:260px}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-top{flex-direction:column}.footer-cols{width:100%;justify-content:space-between;gap:24px}}
+@media(max-width:640px){:root{--gutter:14px}.nav{height:66px}.brand{font-size:17px}.navright .link{font-size:10px}.section{padding:52px 0}.section-head{flex-direction:column;align-items:flex-start;margin-bottom:28px}.section-head h2{font-size:clamp(28px,8vw,36px);line-height:.95}.section-head p{font-size:13px;max-width:100%}.hero{min-height:82svh}.hero-media img{object-position:center}.hero-content{padding:110px 0 40px}.hero h1{font-size:clamp(34px,9.5vw,44px);line-height:.92}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;margin-top:24px}.hero-bottom p{font-size:13px;max-width:100%}.hero-actions{width:100%}.hero-actions .btn{flex:1;min-width:0}.sport-tab-inner{min-height:60px;gap:22px;overflow-x:auto;padding-right:14px;scrollbar-width:none}.sport-tab-inner::-webkit-scrollbar{display:none}.sport-tab{padding:22px 0;font-size:11px}.fixture-rail{gap:var(--gap);margin-right:calc(-1 * var(--gutter))}.fixture-card{min-height:250px;padding:18px}.fixture-match{grid-template-columns:1fr 62px 1fr}.club-logo{width:56px;height:56px}.club-name{font-size:13px}.match-time strong{font-size:24px}.news-grid{grid-template-columns:1fr;gap:12px}.news-grid .media-card:first-child,.news-grid .media-card.small{grid-column:auto;min-height:360px}.media-copy{left:var(--card-copy);right:var(--card-copy);bottom:var(--card-copy)}.media-title{font-size:24px}.media-card.small .media-title{font-size:20px}.video-rail{gap:var(--gap);margin-right:calc(-1 * var(--gutter))}.video-card{min-height:var(--card-media)}.video-copy{left:var(--card-copy);right:var(--card-copy);bottom:var(--card-copy)}.video-title{font-size:20px}.world{min-height:430px}.world-copy{left:var(--card-copy);right:var(--card-copy);bottom:var(--card-copy)}.world h3{font-size:34px}.honours-top h3{font-size:clamp(28px,8vw,36px)}.honours-top p{font-size:13px}.trophy-grid{grid-template-columns:1fr}.trophy-media{height:280px}.trophy-title{font-size:20px}.shop-grid{grid-template-columns:1fr}.product-media{height:320px!important}.logo-wall{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-cell{min-height:96px;padding:18px}.footer-logo{font-size:42px}.footer-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 20px}.btn{min-height:46px;padding:0 14px}}
+@media(max-width:390px){:root{--gutter:11px}.navright{display:none}.hero h1{font-size:34px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.fixture-rail,.video-rail{grid-auto-columns:91vw}.fixture-match{grid-template-columns:1fr 54px 1fr}.club-logo{width:50px;height:50px}.footer-cols{grid-template-columns:1fr}}
 
 .motion-fade{
   opacity:0;
@@ -682,39 +686,62 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
 }
 
 /* ==========================================================
-   NEWS DI PONSEL — pola PSG: satu berita featured full-width,
-   lalu grid 2 kolom berisi kartu ringkas. Lebih pendek daripada
-   menumpuk 3 kartu besar, dan kartunya jadi ~178px (PSG: 173px).
+   NEWS & OUR TEAMS DI PONSEL — rail geser horizontal.
+   Mengikuti pola Manchester United dan Barca: di 390px kartu
+   mereka 296px (76% viewport) x 324px, satu rail per section.
    ========================================================== */
 @media (max-width:640px){
-  .news-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+  .news-grid,
+  .worlds{
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:76vw;
     column-gap:var(--gap);
-    row-gap:20px;
+    row-gap:0;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    margin-right:calc(-1 * var(--gutter));
   }
-  .news-grid .media-card:first-child{
-    grid-column:1 / -1;
-    min-height:300px;
+  .news-grid::-webkit-scrollbar,
+  .worlds::-webkit-scrollbar{display:none}
+  .news-grid > *,
+  .worlds > *{scroll-snap-align:start}
+
+  /* kartu di rail masuk dari samping -> jangan dianimasikan naik */
+  .news-grid .motion-fade,
+  .worlds .motion-fade{
+    opacity:1;
+    transform:none;
   }
+
+  /* NEWS: semua kartu seukuran, tidak ada lagi yang featured */
+  .news-grid .media-card:first-child,
   .news-grid .media-card.small{
     grid-column:auto;
-    min-height:212px;
+    min-height:var(--card-media);
   }
-  .news-grid .media-card.small .media-copy{
-    left:12px;right:12px;bottom:12px;
-  }
-  .news-grid .media-card.small .media-type{
-    font-size:9px;letter-spacing:.11em;
-  }
-  .news-grid .media-card.small .media-title{
-    font-size:15px;line-height:1.16;
-  }
-  .news-grid .media-card.small .media-meta{
-    font-size:9px;margin-top:5px;
-  }
-  /* kartu sempit: biarkan judul mengisi baris, jangan diseimbangkan */
-  .news-grid .media-card.small .media-title{
-    text-wrap:initial;
+  .news-grid .media-card.small .media-copy{left:var(--card-copy);right:var(--card-copy);bottom:var(--card-copy)}
+  .news-grid .media-card.small .media-type{font-size:var(--fs-micro);letter-spacing:.13em}
+  .news-grid .media-card.small .media-title{font-size:20px;line-height:1.1}
+  .news-grid .media-card.small .media-meta{font-size:var(--fs-micro);margin-top:6px}
+
+  /* OUR TEAMS: background induk dibuat transparan -- garis pemisah 1px
+     tidak berlaku lagi di rail, dan ini sekaligus menghilangkan strip
+     terang yang muncul saat kartu terangkat. */
+  .worlds{background:transparent}
+  .world{min-height:var(--card-media)}
+
+  /* satu lebar kartu untuk semua rail, bukan empat nilai berbeda */
+  .fixture-rail,
+  .video-rail,
+  .news-grid,
+  .worlds,
+  .shop-grid{
+    grid-auto-columns:var(--rail-card);
   }
 }
 
@@ -726,7 +753,7 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
   .shop-grid{
     grid-template-columns:none;
     grid-auto-flow:column;
-    grid-auto-columns:62vw;
+    grid-auto-columns:var(--rail-card);
     gap:var(--gap);
     overflow-x:auto;
     overflow-y:hidden;
@@ -734,7 +761,7 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
     -webkit-overflow-scrolling:touch;
     scroll-snap-type:x mandatory;
     scrollbar-width:none;
-    margin-right:-14px;
+    margin-right:calc(-1 * var(--gutter));
   }
   .shop-grid::-webkit-scrollbar{display:none}
   .shop-grid > *{scroll-snap-align:start}
