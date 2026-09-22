@@ -67,6 +67,20 @@ a:focus-visible,button:focus-visible{
 .btn.light{border-color:#111;color:#111}
 .btn.light.primary{background:#111;color:#fff;border-color:#111}
 
+/* Teks pendek: cegah baris terakhir menggantung satu kata (runt/widow).
+   Jumlah baris tidak berubah, jadi tinggi kartu tetap. Browser lama
+   mengabaikan properti ini dan kembali ke pemenggalan biasa. */
+.hero-bottom p,
+.section-head p,
+.honours-top p,
+.world p,
+.media-title,
+.video-title,
+.trophy-title,
+.product-name{
+  text-wrap:balance
+}
+
 /* NAV */
 header{
   position:fixed;left:0;right:0;top:0;z-index:50;
@@ -664,5 +678,42 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
   }
   .section-head h2{
     font-size:28px;
+  }
+}
+
+/* ==========================================================
+   NEWS DI PONSEL — pola PSG: satu berita featured full-width,
+   lalu grid 2 kolom berisi kartu ringkas. Lebih pendek daripada
+   menumpuk 3 kartu besar, dan kartunya jadi ~178px (PSG: 173px).
+   ========================================================== */
+@media (max-width:640px){
+  .news-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:var(--gap);
+    row-gap:20px;
+  }
+  .news-grid .media-card:first-child{
+    grid-column:1 / -1;
+    min-height:300px;
+  }
+  .news-grid .media-card.small{
+    grid-column:auto;
+    min-height:212px;
+  }
+  .news-grid .media-card.small .media-copy{
+    left:12px;right:12px;bottom:12px;
+  }
+  .news-grid .media-card.small .media-type{
+    font-size:9px;letter-spacing:.11em;
+  }
+  .news-grid .media-card.small .media-title{
+    font-size:15px;line-height:1.16;
+  }
+  .news-grid .media-card.small .media-meta{
+    font-size:9px;margin-top:5px;
+  }
+  /* kartu sempit: biarkan judul mengisi baris, jangan diseimbangkan */
+  .news-grid .media-card.small .media-title{
+    text-wrap:initial;
   }
 }
