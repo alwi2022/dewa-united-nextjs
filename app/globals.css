@@ -717,3 +717,88 @@ footer{padding:56px 0 28px;border-top:1px solid var(--line)}
     text-wrap:initial;
   }
 }
+
+/* ==========================================================
+   MERCH DI PONSEL — ikut jadi rail geser horizontal, bukan
+   menumpuk 4 kartu besar ke bawah.
+   ========================================================== */
+@media (max-width:640px){
+  .shop-grid{
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:62vw;
+    gap:var(--gap);
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    margin-right:-14px;
+  }
+  .shop-grid::-webkit-scrollbar{display:none}
+  .shop-grid > *{scroll-snap-align:start}
+  .product-media{height:200px!important}
+  .product-copy{padding:14px!important}
+}
+
+/* ==========================================================
+   Kartu di dalam rail horizontal masuk dari SAMPING, jadi jangan
+   dianimasikan naik dari bawah -- IntersectionObserver ikut terpicu
+   saat rail digeser ke samping sehingga kartunya tampak melompat.
+   Rail-nya sendiri tetap beranimasi sekali saat masuk layar.
+   ========================================================== */
+@media (max-width:900px){
+  .fixture-rail .motion-fade,
+  .video-rail .motion-fade{
+    opacity:1;
+    transform:none;
+  }
+}
+@media (max-width:640px){
+  .shop-grid .motion-fade{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* ==========================================================
+   PRESTASI DI PONSEL — sengaja BUKAN rail. Ini data faktual yang
+   dibaca, bukan media yang dijelajahi; kalau disembunyikan di balik
+   swipe, sebagian trofi tidak akan pernah dilihat. Jadi dibuat baris
+   kompak: logo kompetisi kecil di kiri, keterangan di kanan.
+   3 baris ~= 290px, dibanding ~1260px kalau kartunya ditumpuk.
+   ========================================================== */
+@media (max-width:640px){
+  .trophy-grid{
+    grid-template-columns:1fr;
+    gap:var(--gap);
+  }
+  .trophy-card{
+    display:grid;
+    grid-template-columns:92px 1fr;
+    align-items:center;
+  }
+  .trophy-media{
+    height:92px;
+    border-right:1px solid rgba(255,255,255,.08);
+  }
+  .trophy-media:after{display:none}
+  .trophy-media img{padding:16px}
+  .trophy-copy{padding:12px 16px}
+  .trophy-type{font-size:9px}
+  .trophy-title{font-size:15px;margin-top:4px}
+  .trophy-count{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-top:8px;
+    padding-top:8px;
+  }
+  .trophy-count strong{font-size:24px}
+  .trophy-count span{
+    max-width:none;
+    text-align:left;
+    font-size:9px;
+  }
+}
